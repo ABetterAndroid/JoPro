@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 intent.setClass(this, AnimationActivity.class);
                 break;
             case 2:
+                intent.setClass(this, NetEaseMenuActivity.class);
                 break;
         }
         startActivity(intent);

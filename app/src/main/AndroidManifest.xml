@@ -20,6 +20,8 @@
 
         <activity android:name=".activity.AnimationActivity"/>
 
+        <activity android:name=".activity.NetEaseMenuActivity"/>
+
     </application>
 
 </manifest>
