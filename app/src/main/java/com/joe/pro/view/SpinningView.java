@@ -34,22 +34,6 @@ public class SpinningView extends View {
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(Color.RED);
 
-        ValueAnimator translateAnimator = ValueAnimator.ofFloat(0f, 4.0f);
-        translateAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float animatatedValue = (float) animation.getAnimatedValue() * horizonCircleRadius;
-                Log.i("SpinningView Value", animatatedValue + "");
-                currentTranslateValue = (animatatedValue - 2 * horizonCircleRadius) * (2 * horizonCircleRadius - animatatedValue + 2 * horizonCircleRadius);
-                Log.i("currentTranslateValue", currentTranslateValue + "");
-                postInvalidate();
-            }
-        });
-
-        translateAnimator.setDuration(2000);
-        translateAnimator.setRepeatMode(ValueAnimator.RESTART);
-        translateAnimator.start();
-
     }
 
     @Override
@@ -57,6 +41,32 @@ public class SpinningView extends View {
         super.onLayout(changed, left, top, right, bottom);
         horizonCircleRadius = getMeasuredWidth() / 8;
         Log.i("SpinningView Radius", horizonCircleRadius + "");
+        ValueAnimator translateAnimator = ValueAnimator.ofFloat(0f, (float) (2*Math.PI));
+        translateAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float animatatedValue = (float) animation.getAnimatedValue();
+
+                /*if (animatatedValue >= 0 && animatatedValue < 2) {
+                    currentTranslateValue = (float) -Math.sqrt(Math.abs(Math.pow(horizonCircleRadius, 2) - Math.pow(animatatedValue * horizonCircleRadius - horizonCircleRadius, 2)));
+
+                } else if (animatatedValue >= 2 && animatatedValue <= 4) {
+                    currentTranslateValue = (float) Math.sqrt(Math.abs(Math.pow(horizonCircleRadius, 2) - Math.pow(animatatedValue * horizonCircleRadius - 3 * horizonCircleRadius, 2)));
+                }*/
+
+                currentTranslateValue = (float) (40 * Math.sin(animatatedValue));
+
+                Log.i("currentValue ", currentTranslateValue + "");
+
+
+                postInvalidate();
+            }
+        });
+
+        translateAnimator.setDuration(4000);
+        translateAnimator.setRepeatMode(ValueAnimator.RESTART);
+//        translateAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        translateAnimator.start();
     }
 
     @Override
@@ -67,7 +77,7 @@ public class SpinningView extends View {
         canvas.translate(getMeasuredWidth() / 2, getMeasuredHeight() / 2);
         canvas.scale(1, -1);
 
-        canvas.drawCircle(50 * currentTranslateValue, 0, 10, mPaint);
+        canvas.drawCircle(currentTranslateValue, 0, 10, mPaint);
 
         canvas.restore();
 

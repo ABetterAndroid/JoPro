@@ -15,7 +15,7 @@ import java.util.TimerTask;
 /**
  * Created by qiaorongzhu on 2016/3/5.
  */
-public class JoView extends View {
+public class JoClockView extends View {
 
     private Paint mPaint;
 
@@ -29,15 +29,15 @@ public class JoView extends View {
     private Timer timer;
     private RefreshTimeTask refreshTimeTask;
 
-    public JoView(Context context) {
+    public JoClockView(Context context) {
         this(context, null);
     }
 
-    public JoView(Context context, AttributeSet attrs) {
+    public JoClockView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public JoView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public JoClockView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initPaint();
         millisecondFormat = new SimpleDateFormat("SSS");

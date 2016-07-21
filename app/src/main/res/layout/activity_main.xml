@@ -8,15 +8,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.joe.pro.MainActivity">
+    tools:context=".activity.MainActivity">
 
-    <com.joe.pro.view.JoView
+    <!--<com.joe.pro.view.JoView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
-    <com.joe.pro.view.SpinningView
+    <!--<com.joe.pro.view.SpinningView
 
         android:layout_width="200dp"
-        android:layout_height="200dp" />
+        android:layout_height="200dp" />-->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/demo_list">
+
+    </ListView>
 
 </LinearLayout>
