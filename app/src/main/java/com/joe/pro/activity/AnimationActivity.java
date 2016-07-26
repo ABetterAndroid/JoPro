@@ -18,5 +18,6 @@ public class AnimationActivity extends Activity {
         setContentView(R.layout.activity_animation);
         ImageView ivAnim = ViewTools.findView(this, R.id.path_anim);
         ((Animatable)ivAnim.getDrawable()).start();
+        ((Animatable) ((ImageView) ViewTools.findView(this, R.id.trim_path_anim)).getDrawable()).start();
     }
 }

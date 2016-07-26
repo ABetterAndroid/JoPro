@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="700"
+    android:viewportHeight="700">
+
+    <path
+        android:name="bird"
+        android:pathData="@string/bird_svg"
+        android:strokeAlpha="1"
+        android:strokeWidth="1"
+        android:strokeColor="@color/colorPrimary"
+        android:strokeLineCap="round"/>
+
+</vector>
