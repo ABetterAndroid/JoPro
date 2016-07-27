@@ -22,6 +22,8 @@
 
         <activity android:name=".activity.NetEaseMenuActivity"/>
 
+        <activity android:name=".activity.ViewDragActivity"/>
+
     </application>
 
 </manifest>

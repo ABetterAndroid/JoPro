@@ -15,6 +15,7 @@ public class NetEaseMenuView extends FrameLayout implements View.OnClickListener
 
     private int width;
     private int left;
+    private int height;
 
     public NetEaseMenuView(Context context) {
         super(context);
@@ -43,6 +44,7 @@ public class NetEaseMenuView extends FrameLayout implements View.OnClickListener
         super.onSizeChanged(w, h, oldw, oldh);
         width = width == 0 ? w : width;
         left = left == 0 ? w : left;
+        height = height == 0 ? h : height;
     }
 
     @Override
@@ -56,11 +58,11 @@ public class NetEaseMenuView extends FrameLayout implements View.OnClickListener
                 Log.i("jo", width + " " + (50 * (Float) animation.getAnimatedValue()));
                 float deltaValue = 300 * (Float) animation.getAnimatedValue();
                 getLayoutParams().width = (int) (width - deltaValue);
-                setLeft((int) (left + deltaValue));
+                getLayoutParams().height = (int) (height + deltaValue);
                 requestLayout();
             }
         });
-        moreAnimator.setDuration(800);
+        moreAnimator.setDuration(300);
         moreAnimator.start();
 
 //        setLeft(getLeft() + 500);
