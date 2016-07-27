@@ -35,18 +35,18 @@ public class ViewDragLayout extends FrameLayout {
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
                 Log.i("dragView H", left + " " + dx);
-                final int leftBound = getPaddingLeft();
-                final int rightBound = getWidth() - dragView.getWidth();
-                final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
+                int leftBound = getPaddingLeft();
+                int rightBound = getWidth() - dragView.getWidth();
+                int newLeft = Math.min(Math.max(left, leftBound), rightBound);
                 return newLeft;
             }
 
             @Override
             public int clampViewPositionVertical(View child, int top, int dy) {
                 Log.i("dragView V", top + " " + dy);
-                final int topBound = getPaddingTop();
-                final int bottomBound = getHeight() - dragView.getHeight();
-                final int newTop = Math.min(Math.max(top, topBound), bottomBound);
+                int topBound = getPaddingTop();
+                int bottomBound = getHeight() - dragView.getHeight();
+                int newTop = Math.min(Math.max(top, topBound), bottomBound);
                 return newTop;
             }
 
