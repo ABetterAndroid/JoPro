@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.joe.pro.R;
-import com.joe.pro.Tool.ViewTools;
+import com.joe.pro.tool.ViewTools;
 import com.joe.pro.view.NetEaseMenuView;
 
 /**

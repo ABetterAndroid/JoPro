@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.joe.pro.R;
-import com.joe.pro.Tool.ViewTools;
+import com.joe.pro.tool.ViewTools;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 

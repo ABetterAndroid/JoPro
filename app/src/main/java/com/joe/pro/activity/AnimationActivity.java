@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.joe.pro.R;
-import com.joe.pro.Tool.ViewTools;
+import com.joe.pro.tool.ViewTools;
 
 /**
  * Created by qiaorongzhu on 2016/7/21.

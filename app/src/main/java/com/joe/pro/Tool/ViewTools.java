@@ -1,4 +1,4 @@
-package com.joe.pro.Tool;
+package com.joe.pro.tool;
 
 import android.app.Activity;
 import android.view.View;
