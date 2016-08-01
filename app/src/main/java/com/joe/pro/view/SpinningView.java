@@ -1,5 +1,6 @@
 package com.joe.pro.view;
 
+import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,6 +9,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 
 /**
  * Created by qiaorongzhu on 2016/4/6.
@@ -41,7 +43,7 @@ public class SpinningView extends View {
         super.onLayout(changed, left, top, right, bottom);
         horizonCircleRadius = getMeasuredWidth() / 8;
         Log.i("SpinningView Radius", horizonCircleRadius + "");
-        ValueAnimator translateAnimator = ValueAnimator.ofFloat(0f, (float) (2*Math.PI));
+        ValueAnimator translateAnimator = ValueAnimator.ofFloat((float) (Math.PI / 2), (float) (3 * Math.PI / 2));
         translateAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -54,7 +56,8 @@ public class SpinningView extends View {
                     currentTranslateValue = (float) Math.sqrt(Math.abs(Math.pow(horizonCircleRadius, 2) - Math.pow(animatatedValue * horizonCircleRadius - 3 * horizonCircleRadius, 2)));
                 }*/
 
-                currentTranslateValue = (float) (40 * Math.sin(animatatedValue));
+//                currentTranslateValue = (float) (40 * Math.sin(animatatedValue));
+                currentTranslateValue = animatatedValue;
 
                 Log.i("currentValue ", currentTranslateValue + "");
 
@@ -62,10 +65,12 @@ public class SpinningView extends View {
                 postInvalidate();
             }
         });
+        translateAnimator.setEvaluator(new TestEvaluator());
+        translateAnimator.setInterpolator(new LinearInterpolator());
 
         translateAnimator.setDuration(4000);
-        translateAnimator.setRepeatMode(ValueAnimator.RESTART);
-//        translateAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        translateAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        translateAnimator.setRepeatCount(ValueAnimator.INFINITE);
         translateAnimator.start();
     }
 
@@ -82,4 +87,14 @@ public class SpinningView extends View {
         canvas.restore();
 
     }
+
+    private class TestEvaluator implements TypeEvaluator<Float> {
+        @Override
+        public Float evaluate(float fraction, Float startValue, Float endValue) {
+            Log.i("fraction", fraction + " " + startValue + " " + endValue);
+            return (float) (400 * Math.sin(startValue + (endValue - startValue) * fraction));
+        }
+    }
+
+
 }
