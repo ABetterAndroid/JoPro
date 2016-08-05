@@ -24,6 +24,8 @@
 
         <activity android:name=".activity.ViewDragActivity"/>
 
+        <activity android:name=".activity.WaveActivity"/>
+
     </application>
 
 </manifest>

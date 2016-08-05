@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ListView lvDemos = ViewTools.findView(this, R.id.demo_list);
-        lvDemos.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new String[]{"ClockView", "AnimationTest", "NetEase-Style menu", "Drag View"}));
+        lvDemos.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new String[]{"ClockView", "AnimationTest", "NetEase-Style menu", "Drag View", "Wave"}));
         lvDemos.setOnItemClickListener(this);
     }
 
@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 3:
                 intent.setClass(this, ViewDragActivity.class);
+                break;
+            case 4:
+                intent.setClass(this, WaveActivity.class);
                 break;
         }
         startActivity(intent);
